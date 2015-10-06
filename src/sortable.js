@@ -95,7 +95,7 @@ angular.module('ui.sortable', [])
             // so it can find the new/removed elements.
             scope.$watch('ngModel.length', function() {
               // Timeout to let ng-repeat modify the DOM
-              $timeout(function() {
+              scope.$applyAsync(function() {
                 // ensure that the jquery-ui-sortable widget instance
                 // is still bound to the directive's element
                 if (!!getSortableWidgetInstance(element)) {
